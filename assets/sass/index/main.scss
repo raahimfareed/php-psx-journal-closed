@@ -1,0 +1,10 @@
+.parallax-container {
+    height: auto;
+    min-height: calc(100vh - 64px);
+    .bg-image {
+        filter: blur(10px);
+        // transform: translate3d(-50%, 0px, 0px) scale(1.1);
+        position: absolute;
+        max-height: 100vh;
+    }
+}

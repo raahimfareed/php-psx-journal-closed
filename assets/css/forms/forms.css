@@ -1,0 +1,16 @@
+.text-input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  background-color: #333333;
+  color: #EEEEEE;
+  border: none;
+  border-radius: 2px; }
+
+.button-input {
+  width: 100%; }
+
+.form .card {
+  padding: 20px; }
+
+/*# sourceMappingURL=forms.css.map */

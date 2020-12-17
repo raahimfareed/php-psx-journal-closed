@@ -1,0 +1,9 @@
+.parallax-container {
+  height: auto;
+  min-height: calc(100vh - 64px); }
+  .parallax-container .bg-image {
+    filter: blur(10px);
+    position: absolute;
+    max-height: 100vh; }
+
+/*# sourceMappingURL=main.css.map */

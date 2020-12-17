@@ -1,0 +1,10 @@
+.purple-blue-g-bg {
+  background-image: linear-gradient(to right, #1e92c4, #31ba78, #2bb673);
+  background-size: 200%;
+  background-position: 0%;
+  transition: all .4s ease-in-out; }
+  .purple-blue-g-bg:hover {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out; }
+
+/*# sourceMappingURL=colors.css.map */
