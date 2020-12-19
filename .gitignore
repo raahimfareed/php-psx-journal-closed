@@ -1,3 +1,4 @@
 .vscode
 tests/
 test.php
+config/app.json

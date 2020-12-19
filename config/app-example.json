@@ -1,0 +1,12 @@
+{
+    "app-title": "App title",
+    "app-title-abbr": "App title abbrevation",
+    "app-description": "App Description",
+    
+    "db-host": "database host",
+    "db-port": 3306,
+    "db-name": "database name here",
+    "db-user": "database username here",
+    "db-password": "database password here",
+    "db-charset": "utf8mb4"
+}
