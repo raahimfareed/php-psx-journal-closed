@@ -1,3 +1,8 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/bootstrap.php';
+checkUserSession('index', '.');
+?>
+
 <!DOCTYPE html>
 <html>
 

@@ -1,4 +1,6 @@
 <?php
+namespace App\Config;
+
 class Config
 {
     private $app_title;
