@@ -1,0 +1,16 @@
+nav {
+  background-color: transparent; }
+  nav:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    backdrop-filter: blur(5px); }
+
+.sidenav {
+  min-height: 100vh;
+  overflow-x: hidden; }
+
+/*# sourceMappingURL=nav.css.map */

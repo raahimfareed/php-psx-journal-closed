@@ -1,6 +1,8 @@
 <?php
 namespace App\Config;
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/bootstrap.php';
+
 class Config
 {
     private $app_title;
@@ -8,9 +10,9 @@ class Config
     private $app_description;
 
 
-    public function __construct(string $location)
+    public function __construct()
     {
-        $json_config = file_get_contents("{$location}/config/app.json");
+        $json_config = file_get_contents(ROOT."/config/app.json");
         if ($json_config === false) {
             return false;
         }

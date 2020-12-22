@@ -1,7 +1,5 @@
-document.getElementById("register-form").addEventListener("submit", function (e) {
+document.getElementById("update-user-details").addEventListener("submit", function (e) {
     e.preventDefault();
-
-    // alert("called");
 
     let fullName = document.getElementById("full-name");
     let email = document.getElementById("email");
@@ -11,8 +9,7 @@ document.getElementById("register-form").addEventListener("submit", function (e)
     let cdcAccountNumber = document.getElementById("cdc-account-no");
     let clearingMemberId = document.getElementById("clearing-member-id");
     let clientCode = document.getElementById("client-code");
-    let password = document.getElementById("password");
-    let passwordConfirm = document.getElementById("password-confirm");
+    let currentPassword = document.getElementById("current-password");
 
     let fullNameE = document.getElementById("full-name-error");
     let emailE = document.getElementById("email-error");
@@ -22,13 +19,15 @@ document.getElementById("register-form").addEventListener("submit", function (e)
     let cdcAccountNumberE = document.getElementById("cdc-account-no-error");
     let clearingMemberIdE = document.getElementById("clearing-member-id-error");
     let clientCodeE = document.getElementById("client-code-error");
-    let passwordE = document.getElementById("password-error");
-    let passwordConfirmE = document.getElementById("password-confirm-error");
+    let currentPasswordE = document.getElementById("current-password-error");
 
     let error = false;
 
     let redBorder = "1px solid #FF0000";
     let transparentBorder = "1px solid #00000000";
+
+    currentPassword.style.border = transparentBorder;
+    currentPasswordE.innerHTML = "";
 
     if (fullName.value == "") {
         fullName.style.border = redBorder;
@@ -120,32 +119,12 @@ document.getElementById("register-form").addEventListener("submit", function (e)
         clientCodeE.innerHTML = "";
     }
 
-    if (password.value.length < 8) {
-        password.style.border = redBorder;
-        passwordE.innerHTML = "Your password should be atleast 8 characters long!";
-        error = true;
-    }
-    else {
-        password.style.border = transparentBorder;
-        passwordE.innerHTML = "";
-    }
-
-    if (passwordConfirm.value != password.value) {
-        passwordConfirm.style.border = redBorder;
-        passwordConfirmE.innerHTML = "Your password does not match!";
-        error = true;
-    }
-    else {
-        passwordConfirm.style.border = transparentBorder;
-        passwordConfirmE.innerHTML = "";
-    }
-
     if (error) return;
 
-    let params = `full_name=${fullName.value}&email=${email.value}&ukn=${ukn.value}&uis=${uis.value}&cdc_relation_number=${cdcRelationNumber.value}&cdc_account_number=${cdcAccountNumber.value}&clearing_member_id=${clearingMemberId.value}&client_code=${clientCode.value}&password=${password.value}&password_confirm=${passwordConfirm.value}&registration_date=${Date.now()}&ajax_request=${true}`;
+    let params = `full_name=${fullName.value}&email=${email.value}&ukn=${ukn.value}&uis=${uis.value}&cdc_relation_number=${cdcRelationNumber.value}&cdc_account_number=${cdcAccountNumber.value}&clearing_member_id=${clearingMemberId.value}&client_code=${clientCode.value}&current_password=${currentPassword.value}&ajax_request=${true}`;
 
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', "includes/ajax/register.ajax.php");
+    xhr.open('POST', "includes/ajax/update-user.ajax.php");
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function() {
@@ -195,16 +174,13 @@ document.getElementById("register-form").addEventListener("submit", function (e)
                 clientCode.style.border = redBorder;
                 clientCodeE.innerHTML = "Your Client Code should be less than or equal to 32 characters!";
                 break;            
-            case "password_short":
-                password.style.border = redBorder;
-                passwordE.innerHTML = "Your password should be atleast 8 characters long!";
-                break;
-            case "password_no_match":
-                passwordConfirm.style.border = redBorder;
-                passwordConfirmE.innerHTML = "Your password does not match!";
+            case "invalid_password":
+                currentPassword.style.border = redBorder;
+                currentPasswordE.innerHTML = "Invalid password!";
                 break;
             case "success":
-                let successToast = '<b class="green-text">Account created! <a href="/login.php">Click here</a> to login</b>';
+                let successToast = '<b class="green-text">Updated your details!</b>';
+                currentPassword.value = "";
                 M.toast({html: successToast});
                 break;
             case "db":

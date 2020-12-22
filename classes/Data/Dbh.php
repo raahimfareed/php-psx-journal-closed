@@ -1,6 +1,8 @@
 <?php
 namespace App\Data;
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/bootstrap.php';
+
 use \PDO;
 
 class Dbh
@@ -16,12 +18,24 @@ class Dbh
 
     public function __construct()
     {
-        $this -> host = 'localhost';
-        $this -> port = 3307;
-        $this -> dbname = 'psxj';
-        $this -> user = 'root';
-        $this -> password = '';
-        $this -> charset = 'utf8mb4';
+
+        $json_config = file_get_contents(ROOT."/config/app.json");
+        if ($json_config === false) {
+            return false;
+        }
+
+        if ($json_config === null) {
+            return false;
+        }
+
+        $config = json_decode($json_config, true);
+
+        $this -> host = $config['db-host'];
+        $this -> port = $config['db-port'];
+        $this -> dbname = $config['db-name'];
+        $this -> user = $config['db-user'];
+        $this -> password = $config['db-password'];
+        $this -> charset = $config['db-charset'];
     }
 
     public function connect()

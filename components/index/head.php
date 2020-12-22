@@ -1,5 +1,5 @@
 <?php
-$Config = new  App\Config\Config(".");
+$Config = new  App\Config\Config();
 ?>
 
 <head>

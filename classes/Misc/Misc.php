@@ -27,5 +27,6 @@ class Misc
             unset($_SESSION);
             session_destroy();
         }
+        return true;
     }
 }

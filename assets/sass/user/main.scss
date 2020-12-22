@@ -7,6 +7,10 @@ footer {
     padding-left: 300px;
 }
 
+nav {
+    box-shadow: none;
+}
+
 .fluid-container {
     margin: 0 auto;
     width: calc(100% - 10px);
@@ -23,6 +27,15 @@ footer {
         transform: scale(1.1);
         background-color: #000;
     }
+    .user-view {
+        .background {
+            filter: brightness(50%) blur(1px);
+        }
+    }
+    // .side-nav-footer {
+    //     position: relative;
+    //     top: calc(100vh - 400px);
+    // }
 }
 
 

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK;EACD,OAAO,EAAE,cAAc;;AAE3B,IAAK;EACD,OAAO,EAAE,eAAe;;AAE5B,IAAK;EACD,OAAO,EAAE,eAAe;;AAE5B,IAAK;EACD,OAAO,EAAE,eAAe",
+"sources": ["../../sass/helpers/spacing.scss"],
+"names": [],
+"file": "spacing.css"
+}
